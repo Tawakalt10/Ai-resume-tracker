@@ -1,9 +1,11 @@
 import type { Route } from "./+types/home";
 import Navbar from "~/components/Navbar";
+import   {resumes } from "../../constants/index"
+import ResumeCard from "~/components/ResumeCard";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Resumind" },
+    { title: "Resurea" },
     { name: "description", content: "Smart feedback for your dream job!" },
   ];
 }
@@ -18,27 +20,15 @@ export default function Home() {
   </div>
 </section>
 
-{[
-  {
-    title: 'Resume for Tee Codes',
-    thumbnail: '...'
-  },
-   {
-    title: 'Resume for Tee Codes',
-    thumbnail: '...'
-  },
+{resumes.length > 0 && (
+  <div className="resumes-section    ">
+   {resumes.map((resume) => (
+  <ResumeCard  key={resume.id} resume={} />
+ ))}
+  </div>
+)}
 
-   {
-    title: 'Resume for Tee Codes',
-    thumbnail: '...'
-  },
 
-   {
-    title: 'Resume for Tee Codes',
-    thumbnail: '...'
-  },
-  
 
-]}
-  </main>;
+  </main>
 }
